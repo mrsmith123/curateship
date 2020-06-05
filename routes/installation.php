@@ -1,5 +1,15 @@
 <?php
 
+/*
+|--------------------------------------------------------------------------
+| Installation Routes
+|--------------------------------------------------------------------------
+|
+| These are custom installation routes meant ONLY FOR INSTALLATION.
+| Please NEVER use these routes outside of this file.
+|
+*/
+
 # The route group options.
 $options = [
     'prefix' => 'install',
