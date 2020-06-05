@@ -17,6 +17,11 @@
                 font-weight: 600;
                 color: #ffff7b;
             }
+            .button:hover {
+                -webkit-box-shadow: none;
+                box-shadow: none;
+            }
+
             .button-secondary {
                 background-color: #9f9c9c;
             }
