@@ -46,7 +46,8 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapWebRoutes();
 
-        //
+        # Load the installation routes
+        $this->loadRoutesFrom(base_path('/routes/installation.php'));
     }
 
     /**
