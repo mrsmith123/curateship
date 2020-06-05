@@ -6,7 +6,7 @@
 
 @section('title')
     <i class="fa fa-user-plus fa-fw" aria-hidden="true"></i>
-    Create Administrator Account | CurateShip Installer
+    Create Administrator Account
 @endsection
 
 @section('container')
