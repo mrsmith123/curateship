@@ -1,12 +1,12 @@
 @extends('vendor.installer.layouts.master')
 
 @section('template_title')
-    Create Administrator Account
+    Administrator Account | CurateShip Installer
 @endsection
 
 @section('title')
     <i class="fa fa-user-plus fa-fw" aria-hidden="true"></i>
-    Create Administrator Account
+    Create Administrator Account | CurateShip Installer
 @endsection
 
 @section('container')
