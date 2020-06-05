@@ -6,6 +6,7 @@ use Illuminate\Support\Str;
 use Illuminate\Console\Command;
 use Nwidart\Modules\Facades\Module;
 use Symfony\Component\Process\Process;
+use Illuminate\Support\Facades\Artisan;
 
 class CurateInstallCommand extends Command
 {
@@ -31,6 +32,32 @@ class CurateInstallCommand extends Command
     public function handle()
     {
         $this->installNodeDependencies();
+
+        if ($this->confirm('Do you want to run the development server?', true)) {
+            $this->output->write(sprintf("\033\143")); # Clear the console output
+            $this->line("> php artisan serve\r\n"); # Display an informative message about the command
+            # Show an alert indicating the installation link
+            $this->alert('Please visit the the following link to start the installation: ' 
+                . '<bg=black;fg=white>http://127.0.0.1:8000/install</>');
+
+            # Run the `artisan serve` command
+            Artisan::call(
+                'serve',
+                [
+                    '--host' => '127.0.0.1',
+                    '--port' => 8000
+                ],
+                $this->output
+            );
+        }
+
+        /**
+         * bg and fg basically mean background and foreground
+         * @see https://symfony.com/doc/current/console/coloring.html
+         */
+        $this->alert('Please run `<bg=black;fg=white>php artisan serve</>`'
+            . ' then visit the <bg=black;fg=white>/install</>` route to start the installation'
+            . ' (e.g. <bg=black;fg=white>http://127.0.0.1:8000/install</>)');
     }
 
     /**
@@ -41,8 +68,7 @@ class CurateInstallCommand extends Command
     protected function installNodeDependencies()
     {
         $this->info('Installing NPM dependencies...');
-        $this->comment('[This may take a few minutes]');
-        $this->line(''); // Display an empty line for extra spacing
+        $this->comment("[This may take a few minutes]\r\n");
 
         // We will first install the global node dependencies
         $this->npmInstall(base_path());
