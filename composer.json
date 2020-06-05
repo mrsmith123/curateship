@@ -1,10 +1,11 @@
 {
     "name": "mrsmith123/curateship",
     "type": "project",
-    "description": "The Laravel Framework.",
+    "description": "The CurateShip project.",
     "keywords": [
-        "framework",
-        "laravel"
+        "curateship",
+        "laravel",
+        "laravel project"
     ],
     "license": "MIT",
     "require": {
@@ -61,7 +62,8 @@
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
         ],
         "post-create-project-cmd": [
-            "@php artisan key:generate --ansi"
+            "@php artisan key:generate --ansi",
+            "composer install"
         ]
     }
 }
