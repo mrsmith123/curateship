@@ -66,5 +66,10 @@
             "@php artisan key:generate --ansi",
             "@php artisan curate:install"
         ]
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
     }
 }
