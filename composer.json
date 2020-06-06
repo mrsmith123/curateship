@@ -67,7 +67,8 @@
         ],
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi",
-            "@putenv COMPOSER_MEMORY_LIMIT=-1",
+            "Composer\\Config::disableProcessTimeout",
+            "@php -r \"putenv('COMPOSER_MEMORY_LIMIT=-1');\"",
             "@php artisan curate:install"
         ]
     }
