@@ -36,3 +36,37 @@
         }
     }
 }
+
+.menu-bar {
+    &__item.has-text {
+        width: auto;
+
+        &:not(.icon-top) {
+            border: 1px solid #bfbfbf;
+            padding: .5rem;
+            border-radius: 30px;
+            margin-top: .5rem;
+            margin-bottom: .5rem;
+        }
+
+        &.icon-top {
+            margin-top: .12rem;
+
+            svg, .menu-bar__icon {
+                position: absolute;
+                top: .1rem;
+            }
+
+            .menu-bar__text {
+                margin-top: 1rem;
+                background: #616165;
+                color: #fff;
+                padding: .1rem;
+            }            
+        }
+
+        .menu-bar__text {
+            margin-left: .25rem;
+        }
+    }
+}

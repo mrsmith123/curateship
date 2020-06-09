@@ -25,7 +25,7 @@
                         </svg>
                     </button>
 
-                    <menu class="menu-bar menu-bar--expanded@md js-menu-bar">
+                    <menu class="menu-bar menu-bar--expanded@md js-menu-bar width-100%">
 
                         <li class="menu-bar__item" aria-controls="modal-full-width" role="menuitem">
                             <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
@@ -75,7 +75,7 @@
                             <span class="menu-bar__label">Delete</span>
                         </li>
 
-                        <li class="menu-bar__item" aria-controls="modal-search">
+                        <li class="menu-bar__item margin-left-auto" aria-controls="modal-search">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                                 <title>zoom-2</title>
                                 <g fill="#bfbfbf">
@@ -85,8 +85,39 @@
                                 </g>
                             </svg>
                             <span class="menu-bar__label">Search</span>
-                            </g>
+                        </li>
+
+                        {{-- Nav item with text to the right --}}
+                        <li class="menu-bar__item has-text" aria-controls="modal-search">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <title>zoom-2</title>
+                                <g fill="#bfbfbf">
+                                    <path fill="#bfbfbf"
+                                        d="M1.29 19.88l4.37-4.37a9.93 9.93 0 0 1-1.66-5.51c0-5.51 4.49-10 10-10s10 4.49 10 10-4.49 10-10 10a9.93 9.93 0 0 1-5.51-1.66l-4.37 4.37a1 1 0 0 1-1.41 0l-1.42-1.42a1 1 0 0 1 0-1.41z m20.71-9.88c0-4.41-3.59-8-8-8s-8 3.59-8 8 3.59 8 8 8 8-3.59 8-8z">
+                                    </path>
+                                </g>
                             </svg>
+                            {{-- The text to display must be here --}}
+                            <span class="menu-bar__text display@md">Text Right</span>
+                            {{-- This is the usual label --}}
+                            <span class="menu-bar__label">Search</span>
+                        </li>
+
+                        {{-- Nav item with icon over the text --}}
+                        <li class="menu-bar__item has-text icon-top" aria-controls="modal-search">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <title>trash-simple</title>
+                                <g fill="#bfbfbf">
+                                    <path fill="#bfbfbf" d="M3,8v15c0,0.552,0.448,1,1,1h16c0.552,0,1-0.448,1-1V8H3z M9,19H7v-6h2V19z M13,19h-2v-6h2V19z M17,19h-2v-6 h2V19z">
+                                    </path>
+                                    <path d="M23,4h-6V1c0-0.552-0.447-1-1-1H8C7.447,0,7,0.448,7,1v3H1C0.447,4,0,4.448,0,5s0.447,1,1,1 h22c0.553,0,1-0.448,1-1S23.553,4,23,4z M9,2h6v2H9V2z">
+                                    </path>
+                                </g>
+                            </svg>
+                            {{-- The text to display must be here --}}
+                            <span class="menu-bar__text display@md">Icon Top</span>
+                            {{-- This is the usual label --}}
+                            <span class="menu-bar__label">Search</span>
                         </li>
 
                         <li class="menu-bar__item hide@md no-js:is-hidden" aria-controls="sidebar">
