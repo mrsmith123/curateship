@@ -15,6 +15,7 @@ Route::prefix('admins')->name('admins.')->group(function() {
     // The dashboard routes
     Route::middleware('auth:admins')->group(function () {
         Route::get('/', 'AdminController@index')->name('home');
+        Route::get('/users', 'UserController@index');
         Route::any('logout', 'Auth\LoginController@logout')->name('logout');
     });
 
