@@ -18,11 +18,14 @@
   <noscript>
     <link rel="stylesheet" href="{{ asset('assets/css/style-fallback.css') }}">
   </noscript>
-  <title>Title</title>
-</head><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat+Subrayada&display=swap" rel="stylesheet">
-
+  <title>@yield('title', config('app.name'))</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat+Subrayada&display=swap" rel="stylesheet">
+  {{-- The styles stack --}}
+  {{-- use @push('styles') to add styles here --}}
+  @stack('styles')
+</head>
 
   <header class="mega-nav mega-nav--mobile mega-nav--desktop@md position-relative js-mega-nav hide-nav js-hide-nav js-hide-nav--main">
     <div class="mega-nav__container">
@@ -538,6 +541,9 @@
   </script>
   @endauth
 
+{{-- The scripts stack --}}
+{{-- use @push('scripts') to add scripts here --}}
+@stack('scripts')
 </footer>
 
 </html>

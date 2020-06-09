@@ -1,0 +1,30 @@
+.sidebar:not(.sidebar--static) .sidebar__panel {
+  transform: translateX(100%);
+  left: initial;
+  right: 0;
+}
+
+.sidenav.sidenav__flipped .sidenav__list .sidenav__item.sidenav__item--expanded {
+  transform: rotate(360deg);
+}
+
+.sidenav.sidenav__flipped .sidenav__list .sidenav__item.sidenav__item--expanded .sidenav__sublist-control {
+  transform: rotate(360deg);
+}
+
+.sidenav.sidenav__flipped .sidenav__list .sidenav__item .sidenav__link {
+  flex-direction: row-reverse;
+  padding-right: 1rem;
+}
+
+.sidenav.sidenav__flipped .sidenav__list .sidenav__item .sidenav__link .sidenav__counter {
+  margin-left: unset;
+  margin-right: auto;
+}
+
+.sidenav.sidenav__flipped .sidenav__list .sidenav__item .sidenav__sublist-control {
+  left: initial;
+  right: 0;
+  transform: rotate(180deg);
+}
+
