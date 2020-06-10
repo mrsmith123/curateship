@@ -1,0 +1,200 @@
+@import '~@fortawesome/fontawesome-free/css/all.min.css';
+
+.sidebar:not(.sidebar--static) .sidebar__panel {
+    transform: translateX(100%);
+    left: initial;
+	right: 0;
+}
+
+.sidenav {
+    &.sidenav__flipped  {
+        .sidenav__list {
+            .sidenav__item {
+
+                &.sidenav__item--expanded {
+                    transform: rotate(360deg);
+                    
+                    .sidenav__sublist-control {
+                        transform: rotate(360deg); //
+                    }
+                }
+
+                .sidenav__link {
+                    flex-direction: row-reverse;
+                    padding-right: 1rem;
+        
+                    .sidenav__counter {
+                        margin-left: unset;
+                        margin-right: auto;
+                    }
+                }
+                
+                .sidenav__sublist-control {
+                    left: initial;
+                    right: 0;
+                    transform: rotate(180deg);
+                }
+            }
+        }
+    }
+}
+
+.menu-bar {
+    &__item.has-text {
+        width: auto;
+
+        // &:not(.icon-top) {
+        //     border: 1px solid #bfbfbf;
+        //     padding: .5rem;
+        //     border-radius: 30px;
+        //     margin-top: .5rem;
+        //     margin-bottom: .5rem;
+        // }
+
+        &.icon-top {
+            margin-top: .12rem;
+
+            svg, .menu-bar__icon {
+                position: absolute;
+                top: .1rem;
+            }
+
+            .menu-bar__text {
+                margin-top: 1rem;
+                background: #616165;
+                color: #fff;
+                padding: .1rem;
+            }
+        }
+
+        .menu-bar__text {
+            margin-left: .25rem;
+        }
+    }
+}
+
+.tabs.tabs-nav {
+    display: flex;
+    position: relative;
+
+    &::after {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 200%;
+        height: 2px;
+        background: #dcdce1;
+        bottom: -1.2rem;
+        z-index: 1;
+        margin-left: 27px;
+    }
+
+    .tab-item {
+        margin-left: 26.5px;
+
+        .tab-link {
+            position: relative;
+
+            &::after {
+                content: "";
+                opacity: 0; // Here is the base opacity
+                display: block; // display: none; if you do not need the animation
+                background: #6dc3f2;
+                height: 3px;
+                width: 100%;
+                // transform: translateX(-100%);
+                // transition: all .5s ease-in; // Use this for the animations
+                z-index: 2;
+                position: absolute;
+                bottom: -1.2rem;
+            }
+
+            &.active::after {
+                // display: block; // Use this to show without animation
+                opacity: 1; // The opacity after the tab link is active
+                // transform: translateX(calc(0% + 2px));
+                // transition: transform .5s ease-in;
+            }
+        }
+    }
+}
+
+.tab-content {
+    min-height: 80vh;
+
+    .tab-panel {
+        overflow: hidden;
+
+        &.show {
+            overflow: auto;
+        }
+
+        .icon, .fa, .fas, .fab, .far {
+            font-size: 8rem;
+            margin-top: 24vh;
+        }
+
+        .icon-container {
+            overflow: hidden;
+        }
+    }
+}
+
+@media (min-width:64rem) {
+    .menu-bar .menu-bar__item.has-text:not(.icon-top) {
+        border: 1px solid #bfbfbf;
+        padding: .5rem;
+        border-radius: 30px;
+        margin-top: .5rem;
+        margin-bottom: .5rem;
+    }
+}
+
+@media (max-width: 64rem) {
+    .tabs.tabs-nav {
+        margin-bottom: .5rem;
+
+        &::after {
+            width: 120%;
+            margin-left: 0px;
+            bottom: -1.4rem;
+        }
+
+        .tab-item {
+            &:first-child {
+                // margin-left: 0px;
+            }
+
+            .tab-link {
+                display: block;
+                padding-top: 10px;
+
+                &.active::after {
+                    bottom: -1.4rem;
+                }
+            }
+        }
+    }
+
+    .modal-header-responsive {
+        flex-direction: row;
+        align-items: start;
+        padding-left: .5rem;
+    }
+}
+
+.spin {
+    animation-name: spin;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear; 
+}
+
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}
