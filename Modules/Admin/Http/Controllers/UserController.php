@@ -5,6 +5,7 @@ namespace Modules\Admin\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
+use Faker\Factory as Faker;
 
 class UserController extends Controller
 {
@@ -14,7 +15,43 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('admin::pages.users');
+        // Generate fake users using Faker
+        $faker = Faker::create();
+        $users = collect([]);
+
+        for ($i = 0; $i < 10; $i++) {
+            $fakeUser = [
+                'name' => $faker->name,
+                'email' => $faker->safeEmail,
+                'description' => $faker->realText(200),
+                'country' => $faker->country,
+                'date' => $faker->date(), 
+            ];
+
+            $users->push((object)$fakeUser);
+        }
+
+        return view('admin::pages.users')->with('users', $users);
+    }
+
+    /**
+     * Get random text generated using Faker.
+     *
+     * @param \Illuminate\Http\Request
+     * 
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function randomText(Request $request)
+    {
+        $faker = Faker::create();
+
+        $text = "<h2>{$request->tab}</h2>";
+        $text .= $faker->realText(1000);
+
+
+        return response()->json([
+            'text' => $text,
+        ]);
     }
 
     /**

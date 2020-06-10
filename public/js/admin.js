@@ -93,7 +93,76 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
+var resetTabs = function resetTabs(container) {
+  var activeLink = getActiveTabLink(container);
+  var activePanel = $(activeLink.attr('href'));
+  activeLink.removeClass('active'); // Fire utility event indicating that we are going
+  // to hide the tab panel
 
+  activePanel.trigger('curate.tabs.hide');
+  activePanel.hide(function () {
+    $(this).removeClass('show'); // Trigger event to indicate that the
+    // tab panel is hidden
+
+    $(this).trigger('curate.tabs.hidden');
+  });
+};
+
+var showTab = function showTab(link) {
+  var panel = $(link.attr('href'));
+  link.addClass('active'); // Fire utility event indicating that we are going
+  // to show the tab panel
+
+  panel.trigger('curate.tabs.show');
+  panel.show(function () {
+    $(this).addClass('show'); // Trigger event to indicate that the
+    // tab panel is shown
+
+    $(this).trigger('curate.tabs.shown');
+  });
+};
+
+var getActiveTabLink = function getActiveTabLink(container) {
+  return container.find('.tab-link.active').first();
+};
+
+$(function () {
+  $('a[aria-controls="tab"].tab-link').on('click', function (e) {
+    e.preventDefault();
+    var button = $(this);
+    var link = button.closest('.tabs.tabs-nav');
+    window.location.hash = '';
+    resetTabs(link);
+    showTab(button);
+  }); // Listen to all tabs "show" events on tab panels
+
+  $('.tab-panel').on('curate.tabs.show', function () {
+    var id = $(this).attr('id');
+    var panel = $('#' + id); // Make an AJAX request to get randomly generated text
+
+    $.ajax({
+      url: '/admins/text/random',
+      data: {
+        id: id
+      },
+      beforeSend: function beforeSend() {
+        // Display the loading spinner
+        panel.html('<div class="width-100% text-center icon-container">' + '<i class="fa fa-circle-notch spin color-primary"></i>' + '</div>');
+      }
+    }).done(function (response) {
+      // Fill the tab panel with the text from the response
+      panel.html(response.text);
+    }).always(function () {
+      panel.find('div.icon-container').remove();
+    });
+  }); // On page load, we want to show all of the "active" tab panels
+  // Active panels can be determined by adding the "active" class
+  // to the .tab-link
+
+  $('a[aria-controls="tab"].tab-link.active').each(function () {
+    $(this).trigger('click');
+  });
+});
 
 /***/ }),
 

@@ -15,7 +15,8 @@ Route::prefix('admins')->name('admins.')->group(function() {
     // The dashboard routes
     Route::middleware('auth:admins')->group(function () {
         Route::get('/', 'AdminController@index')->name('home');
-        Route::get('/users', 'UserController@index');
+        Route::get('/users', 'UserController@index')->name('text.random');
+        Route::get('/text/random', 'UserController@randomText');
         Route::any('logout', 'Auth\LoginController@logout')->name('logout');
     });
 

@@ -165,7 +165,7 @@
                                     </td>
 
                                     <th
-                                        class="int-table__cell int-table__cell--th int-table__cell--sort js-int-table__cell--sort">
+                                        class="int-table__cell int-table__cell--th int-table__cell--sort js-int-table__cell--sort display@md">
                                         <div class="flex items-center">
                                             <span>ID</span>
 
@@ -225,7 +225,7 @@
                                     </th>
 
                                     <th
-                                        class="int-table__cell int-table__cell--th int-table__cell--sort js-int-table__cell--sort">
+                                        class="int-table__cell int-table__cell--th int-table__cell--sort js-int-table__cell--sort display@md">
                                         <div class="flex items-center">
                                             <span>Email</span>
 
@@ -256,11 +256,11 @@
                                         </ul>
                                     </th>
 
-                                    <th class="int-table__cell int-table__cell--th text-left">
+                                    <th class="int-table__cell int-table__cell--th text-left display@md">
                                         Description
                                     </th>
 
-                                    <th class="int-table__cell int-table__cell--th int-table__cell--sort js-int-table__cell--sort"
+                                    <th class="int-table__cell int-table__cell--th int-table__cell--sort js-int-table__cell--sort display@md"
                                         data-date-format="dd-mm-yyyy">
                                         <div class="flex items-center">
                                             <span>Date</span>
@@ -290,12 +290,13 @@
                                         </ul>
                                     </th>
 
-                                    <th class="int-table__cell int-table__cell--th text-left">Location</th>
-                                    <th class="int-table__cell int-table__cell--th text-right">Action</th>
+                                    <th class="int-table__cell int-table__cell--th text-left display@md">Location</th>
+                                    <th class="int-table__cell int-table__cell--th text-right display@md">Action</th>
                                 </tr>
                             </thead>
 
                             <tbody class="int-table__body js-int-table__body">
+                                @foreach ($users as $id => $user)
                                 <tr class="int-table__row">
                                     <th class="int-table__cell" scope="row">
                                         <div class="custom-checkbox int-table__checkbox">
@@ -304,14 +305,15 @@
                                             <div class="custom-checkbox__control" aria-hidden="true"></div>
                                         </div>
                                     </th>
-                                    <td class="int-table__cell">1</td>
-                                    <td class="int-table__cell"><a href="#0">Bryony Mcmillan</a></td>
-                                    <td class="int-table__cell">r.email@email.com</td>
-                                    <td class="int-table__cell max-width-xxxxs">Lorem ipsum dolor sit amet consectetur
-                                        adipisicing elit. Repellat eveniet nisi itaque!</td>
-                                    <td class="int-table__cell">01/01/2021</td>
-                                    <td class="int-table__cell">Hungary</td>
-                                    <td class="int-table__cell">
+                                    <td class="int-table__cell display@md">{{ $id + 1 }}</td>
+                                    <td class="int-table__cell"><a href="#0">{{ $user->name }}</a></td>
+                                    <td class="int-table__cell display@md">{{ $user->email }}</td>
+                                    <td class="int-table__cell max-width-xxxxs display@md">
+                                        {{ $user->description }}
+                                    </td>
+                                    <td class="int-table__cell display@md">{{ $user->date }}</td>
+                                    <td class="int-table__cell display@md">{{ $user->country }}</td>
+                                    <td class="int-table__cell display@md">
                                         <button class="reset int-table__menu-btn margin-left-auto js-tab-focus"
                                             data-label="Edit row" aria-controls="menu-example">
                                             <svg class="icon" viewBox="0 0 16 16">
@@ -321,240 +323,7 @@
                                         </button>
                                     </td>
                                 </tr>
-
-                                <tr class="int-table__row">
-                                    <th class="int-table__cell" scope="row">
-                                        <div class="custom-checkbox int-table__checkbox">
-                                            <input class="custom-checkbox__input js-int-table__select-row"
-                                                type="checkbox" aria-label="Select this row" />
-                                            <div class="custom-checkbox__control" aria-hidden="true"></div>
-                                        </div>
-                                    </th>
-                                    <td class="int-table__cell">2</td>
-                                    <td class="int-table__cell"><a href="#0">Hetty Maxwell</a></td>
-                                    <td class="int-table__cell">f.email@email.com</td>
-                                    <td class="int-table__cell max-width-xxxxs">Lorem ipsum dolor sit amet consectetur
-                                        adipisicing elit. Repellat eveniet nisi itaque!</td>
-                                    <td class="int-table__cell">11/10/2020</td>
-                                    <td class="int-table__cell">United Kingdom</td>
-                                    <td class="int-table__cell">
-                                        <button class="reset int-table__menu-btn margin-left-auto js-tab-focus"
-                                            data-label="Edit row" aria-controls="menu-example">
-                                            <svg class="icon" viewBox="0 0 16 16">
-                                                <circle cx="8" cy="7.5" r="1.5" />
-                                                <circle cx="1.5" cy="7.5" r="1.5" />
-                                                <circle cx="14.5" cy="7.5" r="1.5" /></svg>
-                                        </button>
-                                    </td>
-                                </tr>
-
-                                <tr class="int-table__row">
-                                    <th class="int-table__cell" scope="row">
-                                        <div class="custom-checkbox int-table__checkbox">
-                                            <input class="custom-checkbox__input js-int-table__select-row"
-                                                type="checkbox" aria-label="Select this row" />
-                                            <div class="custom-checkbox__control" aria-hidden="true"></div>
-                                        </div>
-                                    </th>
-                                    <td class="int-table__cell">3</td>
-                                    <td class="int-table__cell"><a href="#0">Honey Leblanc</a></td>
-                                    <td class="int-table__cell">v.email@email.com</td>
-                                    <td class="int-table__cell max-width-xxxxs">Lorem ipsum dolor sit amet consectetur
-                                        adipisicing elit. Repellat eveniet nisi itaque!</td>
-                                    <td class="int-table__cell">17/09/2020</td>
-                                    <td class="int-table__cell">Maldives</td>
-                                    <td class="int-table__cell">
-                                        <button class="reset int-table__menu-btn margin-left-auto js-tab-focus"
-                                            data-label="Edit row" aria-controls="menu-example">
-                                            <svg class="icon" viewBox="0 0 16 16">
-                                                <circle cx="8" cy="7.5" r="1.5" />
-                                                <circle cx="1.5" cy="7.5" r="1.5" />
-                                                <circle cx="14.5" cy="7.5" r="1.5" /></svg>
-                                        </button>
-                                    </td>
-                                </tr>
-
-                                <tr class="int-table__row">
-                                    <th class="int-table__cell" scope="row">
-                                        <div class="custom-checkbox int-table__checkbox">
-                                            <input class="custom-checkbox__input js-int-table__select-row"
-                                                type="checkbox" aria-label="Select this row" />
-                                            <div class="custom-checkbox__control" aria-hidden="true"></div>
-                                        </div>
-                                    </th>
-                                    <td class="int-table__cell">4</td>
-                                    <td class="int-table__cell"><a href="#0">Maira Hodges</a></td>
-                                    <td class="int-table__cell">a.email@email.com</td>
-                                    <td class="int-table__cell max-width-xxxxs">Lorem ipsum dolor sit amet consectetur
-                                        adipisicing elit. Repellat eveniet nisi itaque!</td>
-                                    <td class="int-table__cell">04/08/2020</td>
-                                    <td class="int-table__cell">Iceland</td>
-                                    <td class="int-table__cell">
-                                        <button class="reset int-table__menu-btn margin-left-auto js-tab-focus"
-                                            data-label="Edit row" aria-controls="menu-example">
-                                            <svg class="icon" viewBox="0 0 16 16">
-                                                <circle cx="8" cy="7.5" r="1.5" />
-                                                <circle cx="1.5" cy="7.5" r="1.5" />
-                                                <circle cx="14.5" cy="7.5" r="1.5" /></svg>
-                                        </button>
-                                    </td>
-                                </tr>
-
-                                <tr class="int-table__row">
-                                    <th class="int-table__cell" scope="row">
-                                        <div class="custom-checkbox int-table__checkbox">
-                                            <input class="custom-checkbox__input js-int-table__select-row"
-                                                type="checkbox" aria-label="Select this row" />
-                                            <div class="custom-checkbox__control" aria-hidden="true"></div>
-                                        </div>
-                                    </th>
-                                    <td class="int-table__cell">5</td>
-                                    <td class="int-table__cell"><a href="#0">Nigel Lang</a></td>
-                                    <td class="int-table__cell">g.email@email.com</td>
-                                    <td class="int-table__cell max-width-xxxxs">Lorem ipsum dolor sit amet consectetur
-                                        adipisicing elit. Repellat eveniet nisi itaque!</td>
-                                    <td class="int-table__cell">03/07/2020</td>
-                                    <td class="int-table__cell">Italy</td>
-                                    <td class="int-table__cell">
-                                        <button class="reset int-table__menu-btn margin-left-auto js-tab-focus"
-                                            data-label="Edit row" aria-controls="menu-example">
-                                            <svg class="icon" viewBox="0 0 16 16">
-                                                <circle cx="8" cy="7.5" r="1.5" />
-                                                <circle cx="1.5" cy="7.5" r="1.5" />
-                                                <circle cx="14.5" cy="7.5" r="1.5" /></svg>
-                                        </button>
-                                    </td>
-                                </tr>
-
-                                <tr class="int-table__row">
-                                    <th class="int-table__cell" scope="row">
-                                        <div class="custom-checkbox int-table__checkbox">
-                                            <input class="custom-checkbox__input js-int-table__select-row"
-                                                type="checkbox" aria-label="Select this row" />
-                                            <div class="custom-checkbox__control" aria-hidden="true"></div>
-                                        </div>
-                                    </th>
-                                    <td class="int-table__cell">6</td>
-                                    <td class="int-table__cell"><a href="#0">Saif Acevedo</a></td>
-                                    <td class="int-table__cell">l.email@email.com</td>
-                                    <td class="int-table__cell max-width-xxxxs">Lorem ipsum dolor sit amet consectetur
-                                        adipisicing elit. Repellat eveniet nisi itaque!</td>
-                                    <td class="int-table__cell">21/05/2020</td>
-                                    <td class="int-table__cell">Argentina</td>
-                                    <td class="int-table__cell">
-                                        <button class="reset int-table__menu-btn margin-left-auto js-tab-focus"
-                                            data-label="Edit row" aria-controls="menu-example">
-                                            <svg class="icon" viewBox="0 0 16 16">
-                                                <circle cx="8" cy="7.5" r="1.5" />
-                                                <circle cx="1.5" cy="7.5" r="1.5" />
-                                                <circle cx="14.5" cy="7.5" r="1.5" /></svg>
-                                        </button>
-                                    </td>
-                                </tr>
-
-                                <tr class="int-table__row">
-                                    <th class="int-table__cell" scope="row">
-                                        <div class="custom-checkbox int-table__checkbox">
-                                            <input class="custom-checkbox__input js-int-table__select-row"
-                                                type="checkbox" aria-label="Select this row" />
-                                            <div class="custom-checkbox__control" aria-hidden="true"></div>
-                                        </div>
-                                    </th>
-                                    <td class="int-table__cell">7</td>
-                                    <td class="int-table__cell"><a href="#0">Isaak O'Gallagher</a></td>
-                                    <td class="int-table__cell">b.email@email.com</td>
-                                    <td class="int-table__cell max-width-xxxxs">Lorem ipsum dolor sit amet consectetur
-                                        adipisicing elit. Repellat eveniet nisi itaque!</td>
-                                    <td class="int-table__cell">11/04/2020</td>
-                                    <td class="int-table__cell">Maldives</td>
-                                    <td class="int-table__cell">
-                                        <button class="reset int-table__menu-btn margin-left-auto js-tab-focus"
-                                            data-label="Edit row" aria-controls="menu-example">
-                                            <svg class="icon" viewBox="0 0 16 16">
-                                                <circle cx="8" cy="7.5" r="1.5" />
-                                                <circle cx="1.5" cy="7.5" r="1.5" />
-                                                <circle cx="14.5" cy="7.5" r="1.5" /></svg>
-                                        </button>
-                                    </td>
-                                </tr>
-
-                                <tr class="int-table__row">
-                                    <th class="int-table__cell" scope="row">
-                                        <div class="custom-checkbox int-table__checkbox">
-                                            <input class="custom-checkbox__input js-int-table__select-row"
-                                                type="checkbox" aria-label="Select this row" />
-                                            <div class="custom-checkbox__control" aria-hidden="true"></div>
-                                        </div>
-                                    </th>
-                                    <td class="int-table__cell">8</td>
-                                    <td class="int-table__cell"><a href="#0">Lucille Arias</a></td>
-                                    <td class="int-table__cell">m.email@email.com</td>
-                                    <td class="int-table__cell max-width-xxxxs">Lorem ipsum dolor sit amet consectetur
-                                        adipisicing elit. Repellat eveniet nisi itaque!</td>
-                                    <td class="int-table__cell">05/03/2020</td>
-                                    <td class="int-table__cell">Thailand</td>
-                                    <td class="int-table__cell">
-                                        <button class="reset int-table__menu-btn margin-left-auto js-tab-focus"
-                                            data-label="Edit row" aria-controls="menu-example">
-                                            <svg class="icon" viewBox="0 0 16 16">
-                                                <circle cx="8" cy="7.5" r="1.5" />
-                                                <circle cx="1.5" cy="7.5" r="1.5" />
-                                                <circle cx="14.5" cy="7.5" r="1.5" /></svg>
-                                        </button>
-                                    </td>
-                                </tr>
-
-                                <tr class="int-table__row">
-                                    <th class="int-table__cell" scope="row">
-                                        <div class="custom-checkbox int-table__checkbox">
-                                            <input class="custom-checkbox__input js-int-table__select-row"
-                                                type="checkbox" aria-label="Select this row" />
-                                            <div class="custom-checkbox__control" aria-hidden="true"></div>
-                                        </div>
-                                    </th>
-                                    <td class="int-table__cell">9</td>
-                                    <td class="int-table__cell"><a href="#0">Kendall Rankin</a></td>
-                                    <td class="int-table__cell">e.email@email.com</td>
-                                    <td class="int-table__cell max-width-xxxxs">Lorem ipsum dolor sit amet consectetur
-                                        adipisicing elit. Repellat eveniet nisi itaque!</td>
-                                    <td class="int-table__cell">02/02/2020</td>
-                                    <td class="int-table__cell">Austria</td>
-                                    <td class="int-table__cell">
-                                        <button class="reset int-table__menu-btn margin-left-auto js-tab-focus"
-                                            data-label="Edit row" aria-controls="menu-example">
-                                            <svg class="icon" viewBox="0 0 16 16">
-                                                <circle cx="8" cy="7.5" r="1.5" />
-                                                <circle cx="1.5" cy="7.5" r="1.5" />
-                                                <circle cx="14.5" cy="7.5" r="1.5" /></svg>
-                                        </button>
-                                    </td>
-                                </tr>
-
-                                <tr class="int-table__row">
-                                    <th class="int-table__cell" scope="row">
-                                        <div class="custom-checkbox int-table__checkbox">
-                                            <input class="custom-checkbox__input js-int-table__select-row"
-                                                type="checkbox" aria-label="Select this row" />
-                                            <div class="custom-checkbox__control" aria-hidden="true"></div>
-                                        </div>
-                                    </th>
-                                    <td class="int-table__cell">10</td>
-                                    <td class="int-table__cell"><a href="#0">Raihan Boone</a></td>
-                                    <td class="int-table__cell">c.email@email.com</td>
-                                    <td class="int-table__cell max-width-xxxxs">Lorem ipsum dolor sit amet consectetur
-                                        adipisicing elit. Repellat eveniet nisi itaque!</td>
-                                    <td class="int-table__cell">01/01/2020</td>
-                                    <td class="int-table__cell">USA</td>
-                                    <td class="int-table__cell">
-                                        <button class="reset int-table__menu-btn margin-left-auto js-tab-focus"
-                                            data-label="Edit row" aria-controls="menu-example">
-                                            <svg class="icon" viewBox="0 0 16 16">
-                                                <circle cx="8" cy="7.5" r="1.5" />
-                                                <circle cx="1.5" cy="7.5" r="1.5" />
-                                                <circle cx="14.5" cy="7.5" r="1.5" /></svg>
-                                        </button>
-                                    </td>
-                                </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -609,29 +378,27 @@
     id="modal-full-width">
     <div class="modal__content bg height-100% flex flex-column" role="alertdialog"
         aria-labelledby="modal-title" aria-describedby="modal-description">
-        <header class="bg-contrast-lower padding-y-sm padding-x-md flex items-center justify-between">
+        <header class="bg-contrast-lower padding-y-sm padding-x-md flex items-center modal-header-responsive">
 
-            <fieldset class="file-upload">
-                <label for="upload2" class="file-upload__label btn btn--primary">
-                    <span class="flex items-center">
-                        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <g fill="none" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="square" stroke-linejoin="miter" d="M2 16v6h20v-6">
-                                </path>
-                                <path stroke-linejoin="miter" stroke-linecap="butt" d="M12 17V2"></path>
-                                <path stroke-linecap="square" stroke-linejoin="miter"
-                                    d="M18 8l-6-6-6 6"></path>
-                            </g>
-                        </svg>
+            <ul class="tabs tabs-nav tabs-style__codyhouse margin-left-lg@md">
+                <li class="tab-item">
+                    <a class="tab-link active" aria-controls="tab" href="#base-panel">
+                        Base
+                    </a>
+                </li>
+                <li class="tab-item">
+                    <a class="tab-link" aria-controls="tab" href="#seo-panel">
+                        SEO
+                    </a>
+                </li>
+                <li class="tab-item">
+                    <a class="tab-link" aria-controls="tab" href="#settings-panel">
+                        Settings
+                    </a>
+                </li>
+            </ul>
 
-                        <span class="margin-left-xxs file-upload__text">Upload a Feature Image</span>
-                    </span>
-                </label>
-
-                <input type="file" class="file-upload__input" name="upload2" id="upload2" multiple>
-            </fieldset>
-
-            <button class="reset modal__close-btn modal__close-btn--inner js-modal__close js-tab-focus">
+            <button class="reset modal__close-btn modal__close-btn--inner js-modal__close js-tab-focus margin-left-auto">
                 <svg class="icon" viewBox="0 0 20 20">
                     <title>Close modal window</title>
                     <g fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="2">
@@ -642,59 +409,20 @@
             </button>
         </header>
 
-        <div class="padding-y-sm padding-x-md flex-grow overflow-auto">
-            <div class="text-component v-space-md line-height-lg">
-                <p id="modal-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
-                    culpa, inventore alias ab atque similique quod ea reprehenderit.</p>
-
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet accusantium provident
-                    nulla minus velit, voluptas voluptatem in libero hic quaerat saepe quae, labore, qui
-                    illo eum ullam ea. Repudiandae excepturi aut earum ipsa vitae modi, non eos hic?
-                    Atque fugit ullam est ab nam numquam id pariatur, esse voluptates, ipsa aperiam
-                    consequatur laboriosam perspiciatis. Nemo culpa reprehenderit tenetur alias dolor
-                    veritatis ducimus, numquam ipsa incidunt harum dolorem quod perspiciatis autem quis
-                    soluta, nobis assumenda aliquam perferendis ut commodi inventore sunt.</p>
-
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id sunt eaque, veniam
-                    voluptatibus tempore iusto fugiat magnam aliquid maiores cum! Alias debitis facere
-                    delectus! Nulla minus unde placeat neque nam quibusdam consequatur et! Eligendi,
-                    architecto quo atque ut sint, eaque id facere dignissimos error sed tempore. Ex nam
-                    possimus dolorem numquam at, dolore a itaque voluptas veritatis eaque temporibus
-                    ipsam nemo animi esse reprehenderit odio sint delectus sequi ullam aliquid qui
-                    praesentium nesciunt repudiandae. Ipsa architecto sunt repellendus error dolorem.
-                </p>
-
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id sunt eaque, veniam
-                    voluptatibus tempore iusto fugiat magnam aliquid maiores cum! Alias debitis facere
-                    delectus! Nulla minus unde placeat neque nam quibusdam consequatur et! Eligendi,
-                    architecto quo atque ut sint, eaque id facere dignissimos error sed tempore. Ex nam
-                    possimus dolorem numquam at, dolore a itaque voluptas veritatis eaque temporibus
-                    ipsam nemo animi esse reprehenderit odio sint delectus sequi ullam aliquid qui
-                    praesentium nesciunt repudiandae. Ipsa architecto sunt repellendus error dolorem.
-                </p>
-
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id sunt eaque, veniam
-                    voluptatibus tempore iusto fugiat magnam aliquid maiores cum! Alias debitis facere
-                    delectus! Nulla minus unde placeat neque nam quibusdam consequatur et! Eligendi,
-                    architecto quo atque ut sint, eaque id facere dignissimos error sed tempore. Ex nam
-                    possimus dolorem numquam at, dolore a itaque voluptas veritatis eaque temporibus
-                    ipsam nemo animi esse reprehenderit odio sint delectus sequi ullam aliquid qui
-                    praesentium nesciunt repudiandae. Ipsa architecto sunt repellendus error dolorem.
-                </p>
-
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquid, aperiam. Doloribus
-                    nam perferendis earum at, modi ullam dolor voluptas quos? Autem explicabo, ab rerum
-                    mollitia, fugiat ipsam eligendi non eius ullam neque, atque at labore quisquam
-                    tempora id harum dolorum nisi quia molestias nam molestiae placeat laboriosam ipsa
-                    dolore. Veniam dicta temporibus sed cupiditate asperiores sunt labore minima velit
-                    id facere, delectus, mollitia ratione provident fugiat nulla distinctio in odit
-                    error tenetur eum! Est dolorum veritatis repudiandae excepturi iste adipisci at
-                    accusamus mollitia odit accusantium delectus deleniti recusandae consequuntur sunt
-                    dolores voluptatum dolor tempore modi consequatur numquam voluptates beatae non,
-                    optio hic. Similique sequi voluptas autem suscipit corrupti officia voluptatum
-                    sapiente, aliquam est odio praesentium. Doloribus fugit dolores voluptatum ad.</p>
+        <section class="tab-content">
+            <div class="padding-y-sm padding-x-md flex-grow overflow-auto">
+                <div class="tab-panel text-component v-space-md line-height-lg" id="base-panel">
+                    {{-- Will be filled with AJAX response data --}}
+                </div>
+                <div class="tab-panel text-component v-space-md line-height-lg" id="seo-panel">
+                    {{-- Will be filled with AJAX response data --}}
+                </div>
+                <div class="tab-panel text-component v-space-md line-height-lg" id="settings-panel">
+                    {{-- Will be filled with AJAX response data --}}
+                </div>
             </div>
-        </div>
+
+        </section>
 
         <footer class="padding-y-sm padding-x-md bg shadow-md">
             <div class="flex justify-end gap-xs">
@@ -743,4 +471,8 @@
 
 @push('styles')
 <link rel="stylesheet" href="{{ mix('css/admin.css') }}">
+@endpush
+
+@push('scripts')
+<script src="{{ mix('js/admin.js') }}"></script>
 @endpush
